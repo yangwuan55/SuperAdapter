@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ymr.common.test" >
+    package="com.exitedcode.superadapter.test" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -10,8 +10,8 @@
         android:name="android.test.InstrumentationTestRunner"
         android:functionalTest="false"
         android:handleProfiling="false"
-        android:label="Tests for com.ymr.common.test"
-        android:targetPackage="com.ymr.common.test" />
+        android:label="Tests for com.exitedcode.superadapter.test"
+        android:targetPackage="com.exitedcode.superadapter.test" />
 
     <application
         android:allowBackup="true"

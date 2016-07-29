@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.exitedcode.superadapter</groupId>
+  <artifactId>superadapter</artifactId>
+  <version>0.4</version>
+  <packaging>aar</packaging>
+  <name>An android adapter for listview and recyclerview in the same way, support multi type.</name>
+  <url>https://github.com/yangwuan55/SuperAdapter</url>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>yangwuan55</id>
+      <name>mengrong.yang</name>
+      <email>yangwuan55@163.com</email>
+    </developer>
+  </developers>
+  <scm>
+    <connection>https://github.com/yangwuan55/SuperAdapter.git</connection>
+    <developerConnection>https://github.com/yangwuan55/SuperAdapter.git</developerConnection>
+    <url>https://github.com/yangwuan55/SuperAdapter</url>
+  </scm>
+  <dependencies>
+    <dependency>
+      <groupId>com.android.databinding</groupId>
+      <artifactId>adapters</artifactId>
+      <version>1.1</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.android.databinding</groupId>
+      <artifactId>library</artifactId>
+      <version>1.1</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.android.databinding</groupId>
+      <artifactId>baseLibrary</artifactId>
+      <version>2.1.2</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+</project>
