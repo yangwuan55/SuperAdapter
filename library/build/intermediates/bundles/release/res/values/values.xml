@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tag_g_view" type="id"/>
+    <item name="tag_item_type" type="id"/>
+    <item name="tag_view_holder" type="id"/>
+    <string name="app_name">common</string>
+</resources>
