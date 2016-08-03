@@ -2,7 +2,7 @@ package com.exitedcode.superadapter.multitype;
 
 import com.exitedcode.superadapter.base.AbsHolderTyped;
 import com.exitedcode.superadapter.base.IViewHolder;
-import com.exitedcode.superadapter.normal.IHolderAdapter;
+import com.exitedcode.superadapter.base.IHolderAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

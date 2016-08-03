@@ -3,7 +3,7 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
 // 根节点添加
-version = "0.4"
+version = "1.1"
 // 根节点添加
 def siteUrl = 'https://github.com/yangwuan55/SuperAdapter'    // project homepage
 def gitUrl = 'https://github.com/yangwuan55/SuperAdapter.git' // project git
@@ -53,7 +53,7 @@ install {
         // This generates POM.xml with proper parameters
         pom {
             project {
-                artifactId 'superadapter'
+                artifactId 'library'
                 packaging 'aar'
                 // Add your description here
                 name 'An android adapter for listview and recyclerview in the same way, support multi type.' 	//项目描述

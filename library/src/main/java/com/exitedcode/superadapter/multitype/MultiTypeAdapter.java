@@ -4,26 +4,26 @@ import android.content.Context;
 import android.view.View;
 
 import com.exitedcode.superadapter.base.IViewHolder;
-import com.exitedcode.superadapter.normal.ViewHolderAdapter;
+import com.exitedcode.superadapter.normal.ViewAdapter;
 
 import java.util.List;
 
 /**
  * Created by ymr on 16/7/27.
  */
-public abstract class MultiTypeHolderAdapter extends ViewHolderAdapter<Object> implements IMultiTypeAdapter {
+public abstract class MultiTypeAdapter extends ViewAdapter<Object> implements IMultiTypeAdapter<View> {
 
-    private MultiTypeDelegate multiTypeDelegate;
+    private MultiTypeDelegate<View> multiTypeDelegate;
 
-    public MultiTypeHolderAdapter(Context context) {
+    public MultiTypeAdapter(Context context) {
         super(context);
-        multiTypeDelegate = new MultiTypeDelegate(this);
+        multiTypeDelegate = new MultiTypeDelegate<>(this);
         multiTypeDelegate.init();
     }
 
-    public MultiTypeHolderAdapter(Context context, List<Object> objects) {
+    public MultiTypeAdapter(Context context, List<Object> objects) {
         super(context, objects);
-        multiTypeDelegate = new MultiTypeDelegate(this);
+        multiTypeDelegate = new MultiTypeDelegate<>(this);
         multiTypeDelegate.init();
     }
 

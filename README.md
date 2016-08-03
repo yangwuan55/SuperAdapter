@@ -1,6 +1,14 @@
 # SuperAdapter
 A framework for create an adapter when using the listview gridview or recyclerview.
 
+
+gradle
+
+```
+compile 'com.exitedcode.superadapter:library:1.1'
+
+```
+
 # Usage
 - ListAdapter:
 

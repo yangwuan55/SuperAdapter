@@ -4,26 +4,26 @@ import android.content.Context;
 import android.view.View;
 
 import com.exitedcode.superadapter.base.IViewHolder;
-import com.exitedcode.superadapter.normal.ViewHolderRecyclerAdapter;
+import com.exitedcode.superadapter.normal.ViewRecyclerAdapter;
 
 import java.util.List;
 
 /**
  * Created by ymr on 16/7/27.
  */
-public abstract class MultiTypeHolderRecyclerAdapter extends ViewHolderRecyclerAdapter<Object> implements IMultiTypeAdapter {
+public abstract class MultiTypeRecyclerAdapter extends ViewRecyclerAdapter<Object> implements IMultiTypeAdapter<View> {
 
-    private MultiTypeDelegate multiTypeDelegate;
+    private MultiTypeDelegate<View> multiTypeDelegate;
 
-    public MultiTypeHolderRecyclerAdapter(Context context) {
+    public MultiTypeRecyclerAdapter(Context context) {
         super(context);
-        multiTypeDelegate = new MultiTypeDelegate(this);
+        multiTypeDelegate = new MultiTypeDelegate<>(this);
         multiTypeDelegate.init();
     }
 
-    public MultiTypeHolderRecyclerAdapter(Context context, List<Object> datas) {
+    public MultiTypeRecyclerAdapter(Context context, List<Object> datas) {
         super(context, datas);
-        multiTypeDelegate = new MultiTypeDelegate(this);
+        multiTypeDelegate = new MultiTypeDelegate<>(this);
         multiTypeDelegate.init();
     }
 

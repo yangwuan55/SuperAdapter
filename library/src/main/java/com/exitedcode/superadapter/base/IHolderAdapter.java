@@ -1,4 +1,4 @@
-package com.exitedcode.superadapter.normal;
+package com.exitedcode.superadapter.base;
 
 import com.exitedcode.superadapter.base.IViewHolder;
 

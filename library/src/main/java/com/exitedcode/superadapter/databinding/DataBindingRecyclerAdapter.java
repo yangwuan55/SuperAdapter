@@ -4,7 +4,7 @@ import android.content.Context;
 import android.databinding.ViewDataBinding;
 import android.view.View;
 
-import com.exitedcode.superadapter.normal.HolderRecyclerAdapter;
+import com.exitedcode.superadapter.base.HolderRecyclerAdapter;
 import com.exitedcode.superadapter.base.IViewHolder;
 
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.List;
  */
 public abstract class DataBindingRecyclerAdapter<Data> extends HolderRecyclerAdapter<Data, ViewDataBinding> {
 
-    private final DatabindingHolderDelegate<Data> databindingHolderDelegate = new DatabindingHolderDelegate<>(getContext());
+    private final DatabindingHolderDelegate<Data> mDatabindingHolderDelegate = new DatabindingHolderDelegate<>(getContext());
 
     public DataBindingRecyclerAdapter(Context context) {
         super(context);
@@ -26,11 +26,11 @@ public abstract class DataBindingRecyclerAdapter<Data> extends HolderRecyclerAda
 
     @Override
     protected View createRealView(ViewDataBinding viewDataBinding) {
-        return databindingHolderDelegate.createRealView(viewDataBinding);
+        return mDatabindingHolderDelegate.createRealView(viewDataBinding);
     }
 
     @Override
     protected ViewDataBinding createView(IViewHolder<Data, ViewDataBinding> viewHolder) {
-        return databindingHolderDelegate.createView(viewHolder);
+        return mDatabindingHolderDelegate.createView(viewHolder);
     }
 }

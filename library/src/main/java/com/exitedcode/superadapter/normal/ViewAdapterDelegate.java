@@ -5,11 +5,11 @@ import android.view.View;
 
 import com.exitedcode.superadapter.base.IViewHolder;
 
-public class ViewHolderDelegate<Data> {
+public class ViewAdapterDelegate<Data> {
 
     private final Context mContext;
 
-    public ViewHolderDelegate(Context context) {
+    public ViewAdapterDelegate(Context context) {
         mContext = context;
     }
 

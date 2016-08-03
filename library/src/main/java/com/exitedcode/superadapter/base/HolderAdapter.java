@@ -1,12 +1,10 @@
-package com.exitedcode.superadapter.normal;
+package com.exitedcode.superadapter.base;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.exitedcode.superadapter.R;
-import com.exitedcode.superadapter.base.DataAdapter;
-import com.exitedcode.superadapter.base.IViewHolder;
 
 import java.util.List;
 

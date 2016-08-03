@@ -7,14 +7,14 @@ import android.view.View;
 import com.exitedcode.superadapter.databinding.DataBindingAdapter;
 import com.exitedcode.superadapter.databinding.DataBindingRecyclerAdapter;
 import com.exitedcode.superadapter.multitype.IType;
+import com.exitedcode.superadapter.multitype.MultiTypeAdapter;
+import com.exitedcode.superadapter.multitype.MultiTypeDatabindingAdapter;
 import com.exitedcode.superadapter.multitype.MultiTypeDatabindingRecyclerAdapter;
-import com.exitedcode.superadapter.multitype.MultiTypeHolderRecyclerAdapter;
+import com.exitedcode.superadapter.multitype.MultiTypeRecyclerAdapter;
 import com.exitedcode.superadapter.multitype.SimpleDatabindingType;
-import com.exitedcode.superadapter.multitype.SimpleMultiTypeDatabindingAdatper;
-import com.exitedcode.superadapter.multitype.SimpleMultiTypeHolderAdatper;
 import com.exitedcode.superadapter.multitype.SimpleHolderTyped;
-import com.exitedcode.superadapter.normal.ViewHolderAdapter;
-import com.exitedcode.superadapter.normal.ViewHolderRecyclerAdapter;
+import com.exitedcode.superadapter.normal.ViewAdapter;
+import com.exitedcode.superadapter.normal.ViewRecyclerAdapter;
 
 import java.util.List;
 
@@ -33,7 +33,7 @@ public class SuperAdapterFactory {
     }
 
     public static <D> DataAdapter<D> createListAdapter(Context context, final IViewHolder<D,View> viewHolder) {
-        return new ViewHolderAdapter<D>(context) {
+        return new ViewAdapter<D>(context) {
             @Override
             public IViewHolder<D,View> createViewHolder(int viewType) {
                 return viewHolder;
@@ -41,19 +41,19 @@ public class SuperAdapterFactory {
         };
     }
 
-    public static DataAdapter createMultiTypeDatabindingAdapter(Context context, final List<SimpleDatabindingType> simpleTypedDatabindingHolderAdapters) {
-        return new SimpleMultiTypeDatabindingAdatper(context) {
+    public static DataAdapter createMultiTypeDatabindingAdapter(Context context, final List<SimpleDatabindingType<?>> simpleTypedDatabindingHolderAdapters) {
+        return new MultiTypeDatabindingAdapter(context) {
             @Override
-            protected List<SimpleDatabindingType> createSimpleTypedViewHolderAdapter() {
+            public List<? extends IType<?, ViewDataBinding>> createMultiTypes() {
                 return simpleTypedDatabindingHolderAdapters;
             }
         };
     }
 
-    public static DataAdapter createMultiTypeHolderAdapter(Context context, final List<SimpleHolderTyped> multiTypeDatabindingAdatpers) {
-        return new SimpleMultiTypeHolderAdatper(context) {
+    public static DataAdapter createMultiTypeHolderAdapter(Context context, final List<SimpleHolderTyped<?>> multiTypeDatabindingAdatpers) {
+        return new MultiTypeAdapter(context) {
             @Override
-            protected List<SimpleHolderTyped> createSimpleTypedViewHolderAdapter() {
+            public List<? extends IType<?, View>> createMultiTypes() {
                 return multiTypeDatabindingAdatpers;
             }
         };
@@ -69,7 +69,7 @@ public class SuperAdapterFactory {
     }
 
     public static <D> DataRecyclerAdapter<D> createRecyclerAdapter(Context context, final IViewHolder<D,View> viewHolder) {
-        return new ViewHolderRecyclerAdapter<D>(context) {
+        return new ViewRecyclerAdapter<D>(context) {
             @Override
             public IViewHolder<D,View> createViewHolder(int viewType) {
                 return viewHolder;
@@ -77,19 +77,19 @@ public class SuperAdapterFactory {
         };
     }
 
-    public static DataRecyclerAdapter createMultiTypeDatabindingRecyclerAdapter(Context context,final List<SimpleDatabindingType> multiTypeDatabindingAdatpers) {
+    public static DataRecyclerAdapter createMultiTypeDatabindingRecyclerAdapter(Context context,final List<SimpleDatabindingType<?>> multiTypeDatabindingAdatpers) {
         return new MultiTypeDatabindingRecyclerAdapter(context) {
             @Override
-            public List<? extends IType> createMultiTypes() {
+            public List<? extends IType<?, ViewDataBinding>> createMultiTypes() {
                 return multiTypeDatabindingAdatpers;
             }
         };
     }
 
-    public static DataRecyclerAdapter createMultiTypeHolderRecyclerAdapter(Context context,final List<SimpleHolderTyped> multiTypeDatabindingAdatpers) {
-        return new MultiTypeHolderRecyclerAdapter(context) {
+    public static DataRecyclerAdapter createMultiTypeHolderRecyclerAdapter(Context context,final List<SimpleHolderTyped<?>> multiTypeDatabindingAdatpers) {
+        return new MultiTypeRecyclerAdapter(context) {
             @Override
-            public List<? extends IType> createMultiTypes() {
+            public List<? extends IType<?, View>> createMultiTypes() {
                 return multiTypeDatabindingAdatpers;
             }
         };

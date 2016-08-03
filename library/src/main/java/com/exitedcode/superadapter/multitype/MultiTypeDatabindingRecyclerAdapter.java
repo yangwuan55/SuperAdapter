@@ -11,19 +11,19 @@ import java.util.List;
 /**
  * Created by ymr on 16/7/27.
  */
-public abstract class MultiTypeDatabindingRecyclerAdapter extends DataBindingRecyclerAdapter<Object> implements IMultiTypeAdapter {
+public abstract class MultiTypeDatabindingRecyclerAdapter extends DataBindingRecyclerAdapter<Object> implements IMultiTypeAdapter<ViewDataBinding> {
 
-    private MultiTypeDelegate multiTypeDelegate;
+    private MultiTypeDelegate<ViewDataBinding> multiTypeDelegate;
 
     public MultiTypeDatabindingRecyclerAdapter(Context context) {
         super(context);
-        multiTypeDelegate = new MultiTypeDelegate(this);
+        multiTypeDelegate = new MultiTypeDelegate<>(this);
         multiTypeDelegate.init();
     }
 
     public MultiTypeDatabindingRecyclerAdapter(Context context, List<Object> objects) {
         super(context, objects);
-        multiTypeDelegate = new MultiTypeDelegate(this);
+        multiTypeDelegate = new MultiTypeDelegate<>(this);
         multiTypeDelegate.init();
     }
 
