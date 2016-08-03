@@ -2,7 +2,7 @@
 A framework for create an adapter when using the listview gridview or recyclerview.
 
 
-gradle
+- gradle
 
 ```
 compile 'com.exitedcode.superadapter:library:1.1'
@@ -145,7 +145,7 @@ ArrayList<SimpleDatabindingType> typedHolderAdapters = new ArrayList<>();
 
  SuperAdapterFactory.createRecyclerAdapter(context,viewholder);
  SuperAdapterFactory.createDatabindingRecyclerAdapter(context,viewholder);
- SuperAdapterFactory.createMultiTypeDatabindingRecyclerAdapter(this, typedHolderAdapters);
- SuperAdapterFactory.createMultiTypeHolderRecyclerAdapter(this, typedHolderAdapters);
+ SuperAdapterFactory.createMultiTypeDatabindingRecyclerAdapter(context, typedHolderAdapters);
+ SuperAdapterFactory.createMultiTypeHolderRecyclerAdapter(context, typedHolderAdapters);
 
 ```
