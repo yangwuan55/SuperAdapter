@@ -1,11 +1,16 @@
 # SuperAdapter
 A framework for create an adapter when using the listview gridview or recyclerview.
 
-multitype
+- multitype
+
 ![MacDown Screenshot](https://github.com/yangwuan55/SuperAdapter/raw/master/imgs/Screenshot_2016-08-16-16-30-47.png)
-normal
+
+- normal
+
 ![MacDown Screenshot](https://github.com/yangwuan55/SuperAdapter/raw/master/imgs/Screenshot_2016-08-16-16-30-34.png)
-databinding
+
+- databinding
+
 ![MacDown Screenshot](https://github.com/yangwuan55/SuperAdapter/raw/master/imgs/Screenshot_2016-08-16-16-30-39.png)
 
 - gradle
