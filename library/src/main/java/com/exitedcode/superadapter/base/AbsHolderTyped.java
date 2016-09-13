@@ -23,6 +23,4 @@ public abstract class AbsHolderTyped<Data,GView> implements IType<Data,GView> {
     public TypedViewHolder<? extends Data,GView> getTypedViewHolder() {
         return typedViewHolder;
     }
-
-    public abstract boolean isCurrType(Object object);
 }
