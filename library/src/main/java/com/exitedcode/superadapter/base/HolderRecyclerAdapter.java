@@ -25,15 +25,15 @@ public abstract class HolderRecyclerAdapter<Data,GView> extends DataRecyclerAdap
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         IViewHolder<Data, GView> viewHolder = createViewHolder(viewType);
-        MyViewHolder recyclerViewHolder = new MyViewHolder(viewHolder);
+        MyViewHolder recyclerViewHolder = new MyViewHolder(viewHolder,parent);
         recyclerViewHolder.setIViewHolder(viewHolder);
         return recyclerViewHolder;
     }
 
     protected abstract IViewHolder<Data,GView> createViewHolder(int viewType);
 
-    protected View inflate(IViewHolder<Data, GView> viewHolder) {
-        GView gView = createView(viewHolder);
+    protected View inflate(IViewHolder<Data, GView> viewHolder, ViewGroup parent) {
+        GView gView = createView(viewHolder,parent);
         View view = createRealView(gView);
         view.setTag(R.id.tag_g_view,gView);
         return view;
@@ -41,7 +41,7 @@ public abstract class HolderRecyclerAdapter<Data,GView> extends DataRecyclerAdap
 
     protected abstract View createRealView(GView gView);
 
-    protected abstract GView createView(IViewHolder<Data, GView> viewHolder);
+    protected abstract GView createView(IViewHolder<Data, GView> viewHolder, ViewGroup parent);
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
@@ -52,8 +52,8 @@ public abstract class HolderRecyclerAdapter<Data,GView> extends DataRecyclerAdap
     private class MyViewHolder extends RecyclerView.ViewHolder {
         private IViewHolder<Data, GView> mIViewHolder;
 
-        public MyViewHolder(IViewHolder<Data, GView> viewHolder) {
-            super(HolderRecyclerAdapter.this.inflate(viewHolder));
+        public MyViewHolder(IViewHolder<Data, GView> viewHolder, ViewGroup parent) {
+            super(HolderRecyclerAdapter.this.inflate(viewHolder,parent));
         }
 
         public void setIViewHolder(IViewHolder<Data,GView> IViewHolder) {

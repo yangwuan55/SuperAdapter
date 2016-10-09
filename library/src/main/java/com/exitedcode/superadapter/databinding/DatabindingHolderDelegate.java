@@ -10,7 +10,7 @@ import com.exitedcode.superadapter.base.IViewHolder;
 
 public class DatabindingHolderDelegate<D> {
 
-    private final Context mContext;
+    protected final Context mContext;
 
     public DatabindingHolderDelegate(Context context) {
         mContext = context;

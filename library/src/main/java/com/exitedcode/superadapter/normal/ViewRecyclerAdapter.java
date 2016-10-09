@@ -2,6 +2,7 @@ package com.exitedcode.superadapter.normal;
 
 import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.exitedcode.superadapter.base.HolderRecyclerAdapter;
 import com.exitedcode.superadapter.base.IViewHolder;
@@ -28,7 +29,7 @@ public abstract class ViewRecyclerAdapter<Data> extends HolderRecyclerAdapter<Da
     }
 
     @Override
-    protected View createView(IViewHolder<Data, View> viewHolder) {
+    protected View createView(IViewHolder<Data, View> viewHolder, ViewGroup parent) {
         return viewAdapterDelegate.createView(viewHolder);
     }
 }
