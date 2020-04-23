@@ -1,7 +1,7 @@
 package com.exitedcode.superadapter.multitype;
 
 import android.content.Context;
-import android.databinding.ViewDataBinding;
+import androidx.databinding.ViewDataBinding;
 
 import com.exitedcode.superadapter.base.IViewHolder;
 import com.exitedcode.superadapter.databinding.DataBindingRecyclerAdapter;

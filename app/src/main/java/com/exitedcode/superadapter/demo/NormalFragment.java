@@ -1,7 +1,7 @@
 package com.exitedcode.superadapter.demo;
 
 import android.os.Bundle;
-import android.support.v4.app.ListFragment;
+import androidx.fragment.app.ListFragment;
 import android.view.View;
 
 import com.exitedcode.superadapter.base.DataAdapter;

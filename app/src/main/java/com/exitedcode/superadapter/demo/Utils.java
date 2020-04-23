@@ -1,6 +1,5 @@
 package com.exitedcode.superadapter.demo;
 
-import android.support.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +10,6 @@ import java.util.List;
 
 public class Utils {
 
-    @NonNull
     public static ArrayList<Object> generateDatas() {
         ArrayList<Object> datas = new ArrayList<>();
         datas.add(new A());

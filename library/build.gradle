@@ -1,9 +1,11 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
 // 根节点添加
-version = "1.1.1"
+version = "1.1.2"
 // 根节点添加
 def siteUrl = 'https://github.com/yangwuan55/SuperAdapter'    // project homepage
 def gitUrl = 'https://github.com/yangwuan55/SuperAdapter.git' // project git
@@ -12,12 +14,11 @@ def gitUrl = 'https://github.com/yangwuan55/SuperAdapter.git' // project git
 group = "com.exitedcode.superadapter"
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.0"
+    compileSdkVersion 28
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 28
         versionCode 1
         versionName version
     }
@@ -44,8 +45,9 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    provided 'com.android.support:recyclerview-v7:24.2.0'
+    compileOnly 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
 install {
@@ -112,4 +114,7 @@ bintray {
         licenses = ["Apache-2.0"]
         publish = true
     }
+}
+repositories {
+    mavenCentral()
 }

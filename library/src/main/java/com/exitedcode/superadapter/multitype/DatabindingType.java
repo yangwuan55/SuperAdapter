@@ -1,6 +1,6 @@
 package com.exitedcode.superadapter.multitype;
 
-import android.databinding.ViewDataBinding;
+import androidx.databinding.ViewDataBinding;
 
 import com.exitedcode.superadapter.base.AbsHolderTyped;
 import com.exitedcode.superadapter.base.IViewHolder;
