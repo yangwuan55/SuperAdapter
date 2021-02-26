@@ -69,4 +69,13 @@ public class DataManagerDelegate<D> implements IDataManager<D> {
     public void notifyDataSetChanged() {
         mDataManager.notifyDataSetChanged();
     }
+
+    public void justUpdateDatas(List<? extends D> datas) {
+        mDatas.clear();
+        justAddDatas(datas);
+    }
+
+    public void justAddDatas(List<? extends D> datas) {
+        mDatas.addAll(datas);
+    }
 }

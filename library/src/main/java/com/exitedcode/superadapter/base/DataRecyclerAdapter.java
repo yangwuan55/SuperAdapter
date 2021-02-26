@@ -1,6 +1,8 @@
 package com.exitedcode.superadapter.base;
 
 import android.content.Context;
+
+import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -37,6 +39,16 @@ public abstract class DataRecyclerAdapter<D> extends RecyclerView.Adapter implem
     @Override
     public void setDatas(List<? extends D> datas) {
         mDataManagerDelegate.setDatas(datas);
+    }
+
+    public void setDatas(List<? extends D> datas, DiffUtil.Callback callback) {
+        DiffUtil.calculateDiff(callback).dispatchUpdatesTo(this);
+        mDataManagerDelegate.justUpdateDatas(datas);
+    }
+
+    public void addDatas(List<? extends D> datas,DiffUtil.Callback callback) {
+        DiffUtil.calculateDiff(callback).dispatchUpdatesTo(this);
+        mDataManagerDelegate.justAddDatas(datas);
     }
 
     @Override
