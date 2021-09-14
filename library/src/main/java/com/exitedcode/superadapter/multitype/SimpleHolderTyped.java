@@ -17,7 +17,7 @@ public class SimpleHolderTyped<D> extends HolderType<D> {
     }
 
     @Override
-    public boolean isCurrType(D object) {
+    public boolean isCurrType(Object object) {
         return object.getClass().equals(mDClass);
     }
 }

@@ -8,5 +8,5 @@ public interface IType<Data, GView> {
 
     TypedViewHolder<? extends Data,GView> getTypedViewHolder();
 
-    boolean isCurrType(Data data);
+    boolean isCurrType(Object data);
 }

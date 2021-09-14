@@ -1,0 +1,55 @@
+apply plugin: 'maven'
+
+def getReleaseRepositoryUrl() {
+    return RELEASE_REPOSITORY_URL
+}
+
+def getSnapshotRepositoryUrl() {
+    return SNAPSHOT_REPOSITORY_URL
+}
+
+afterEvaluate { project ->
+    println("version:${version}")
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+
+                repository(url: getReleaseRepositoryUrl()) {
+                    authentication(userName: NEXUS_USERNAME, password: NEXUS_PASSWORD)
+                }
+
+                snapshotRepository(url: getSnapshotRepositoryUrl()) {
+                    authentication(userName: NEXUS_USERNAME, password: NEXUS_PASSWORD)
+                }
+
+                pom.project {
+                    groupId POM_GROUP_ID
+                    artifactId POM_ARTIFACT_ID
+                    version version
+                    packaging POM_PACKAGING
+                }
+            }
+        }
+    }
+
+    task androidSourcesJar(type: Jar) {
+        classifier = 'sources'
+        from android.sourceSets.main.java.srcDirs
+    }
+
+    artifacts {
+        archives androidSourcesJar
+    }
+
+    /*task upgradeVersion() {
+        def buildVerProp = new Properties()
+        def inputStream = new FileInputStream(file("../buildVer.properties"))
+        buildVerProp.load(inputStream)
+        buildVerProp.put("BUILD", (Integer.parseInt(buildVerProp.get("BUILD")) + 1).toString())
+        def outputStream = new FileOutputStream(file("../buildVer.properties"))
+        buildVerProp.store(outputStream, "comments wangce")
+        inputStream.close()
+        outputStream.close()
+        version = "${live_sdk_version}.${buildVerProp.get("BUILD")}"
+    }*/
+}
