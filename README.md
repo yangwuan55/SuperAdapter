@@ -16,7 +16,7 @@ A framework for create an adapter when using the listview gridview or recyclervi
 ## gradle
 
 ```
-compile 'com.exitedcode.superadapter:library:1.1'
+compile 'com.exitedcode.superadapter:library:1.1.5'
 
 ```
 
