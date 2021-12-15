@@ -4,17 +4,19 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'maven-publish'
 
 
-// 根节点添加
-version = "1.1.5"
-// 根节点添加
-def siteUrl = 'https://github.com/yangwuan55/SuperAdapter'    // project homepage
-def gitUrl = 'https://github.com/yangwuan55/SuperAdapter.git' // project git
+repositories {
+    mavenCentral()
+    google()
+    jcenter()
+    maven { url "https://jitpack.io" }
+}
 
-// 根节点添加
 group = "com.exitedcode.superadapter"
-
+version = '1.1.6'
+def versionForset = version
 android {
     compileSdkVersion 28
 
@@ -52,73 +54,16 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 
-install {
-    repositories.mavenInstaller {
-        // This generates POM.xml with proper parameters
-        pom {
-            project {
-                artifactId 'library'
-                packaging 'aar'
-                // Add your description here
-                name 'An android adapter for listview and recyclerview in the same way, support multi type.' 	//项目描述
-                url siteUrl
-                // Set your license
-                licenses {
-                    license {
-                        name 'The Apache Software License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-                developers {
-                    developer {
-                        id 'yangwuan55'		//填写的一些基本信息
-                        name 'mengrong.yang'
-                        email 'yangwuan55@163.com'
-                    }
-                }
-                scm {
-                    connection gitUrl
-                    developerConnection gitUrl
-                    url siteUrl
-                }
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = group
+                artifactId = 'SuperAdapter'
+                version = versionForset
+
+                from components.release
             }
         }
     }
 }
-
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-artifacts {
-    archives javadocJar
-    archives sourcesJar
-}
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-    configurations = ['archives']
-    pkg {
-        repo = "maven"
-        name = "SuperAdapter"	//发布到JCenter上的项目名字
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
-        licenses = ["Apache-2.0"]
-        publish = true
-    }
-}
-repositories {
-    mavenCentral()
-}
-
-apply from: '../upload.gradle'
