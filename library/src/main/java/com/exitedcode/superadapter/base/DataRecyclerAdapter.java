@@ -42,13 +42,15 @@ public abstract class DataRecyclerAdapter<D> extends RecyclerView.Adapter implem
     }
 
     public void setDatas(List<? extends D> datas, DiffUtil.Callback callback) {
-        DiffUtil.calculateDiff(callback).dispatchUpdatesTo(this);
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(callback);
         mDataManagerDelegate.justUpdateDatas(datas);
+        diffResult.dispatchUpdatesTo(this);
     }
 
     public void addDatas(List<? extends D> datas,DiffUtil.Callback callback) {
-        DiffUtil.calculateDiff(callback).dispatchUpdatesTo(this);
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(callback);
         mDataManagerDelegate.justAddDatas(datas);
+        diffResult.dispatchUpdatesTo(this);
     }
 
     @Override
